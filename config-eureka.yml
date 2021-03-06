@@ -1,0 +1,46 @@
+
+spring:
+  profiles:
+    active: dev
+
+---
+
+server:
+  port: 7001
+
+spring:
+  profiles: dev
+  application:
+    name: springcloud-config-eureka
+# Eureka 配置
+eureka:
+  instance:
+    hostname: ybg.eureka1.com     # Eureka 服务端的实例名称
+  client:
+    fetch-registry: false       # fetch-registry为false表示自己为注册中心
+    register-with-eureka: false    # 表示是否向eureka注册中心注册自己
+    service-url:        # 监控页面
+      # 单机 defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+      # 集群（关联） 后面有多少个就接多少个，用逗号隔开
+      defaultZone: http://ybg.eureka2.com:7002/eureka/,http://ybg.eureka1.com:7001/eureka/
+---
+server:
+  port: 7001
+
+spring:
+  profiles: test
+  application:
+    name: springcloud-config-eureka
+# Eureka 配置
+eureka:
+  instance:
+    hostname: ybg.eureka1.com     # Eureka 服务端的实例名称
+  client:
+    fetch-registry: false       # fetch-registry为false表示自己为注册中心
+    register-with-eureka: false    # 表示是否向eureka注册中心注册自己
+    service-url:        # 监控页面
+      # 单机 defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+      # 集群（关联） 后面有多少个就接多少个，用逗号隔开
+      defaultZone: http://ybg.eureka2.com:7002/eureka/,http://ybg.eureka1.com:7001/eureka/
+
+
