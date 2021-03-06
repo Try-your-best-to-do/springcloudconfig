@@ -43,7 +43,7 @@ info:
 server:
   port: 8001
 spring:
-  profiles: dev
+  profiles: test
   application:
     name: springcloud-config-user      # 三个服务名称一致
   datasource:
