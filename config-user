@@ -1,0 +1,76 @@
+spring:
+  profiles:
+    active: dev
+---
+
+server:
+  port: 8001
+spring:
+  profiles: dev
+  application:
+    name: springcloud-config-user      # 三个服务名称一致
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+    url: jdbc:mysql://localhost:3306/mybatis_plus?serverTimezone=GMT%2B8
+    username: root
+    password: 520China
+
+
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+
+# Eureka 配置
+eureka:
+  client:
+    service-url:
+      defaultZone: http://ybg.eureka1.com:7001/eureka/,http://ybg.eureka2.com:7002/eureka/   # 发布在哪个网址的注册中心
+  instance:
+    instance-id: springcloud-provider-user-8001  #修改Eureka上的描述信息
+
+# info配置
+info:
+  app.name: ybg-springcloud
+  company.name: www.hzxy.com
+
+---
+
+server:
+  port: 8001
+spring:
+  profiles: dev
+  application:
+    name: springcloud-config-user      # 三个服务名称一致
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+    url: jdbc:mysql://localhost:3306/mybatis_plus2?serverTimezone=GMT%2B8
+    username: root
+    password: 520China
+
+
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+
+# Eureka 配置
+eureka:
+  client:
+    service-url:
+      defaultZone: http://ybg.eureka1.com:7001/eureka/,http://ybg.eureka2.com:7002/eureka/   # 发布在哪个网址的注册中心
+  instance:
+    instance-id: springcloud-provider-user-8001  #修改Eureka上的描述信息
+
+# info配置
+info:
+  app.name: ybg-springcloud
+  company.name: www.hzxy.com
